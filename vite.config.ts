@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
 
   // ✅ FINAL FIX
-base: "/apple-inspired-portfolio-af74261f-main/",
+base: "/POrtfolio/",
 
   resolve: {
     alias: {
