@@ -13,30 +13,7 @@ const experiences = [
     ],
     tech: ["Python", "Java", "PyTorch", "CUDA", "CNN", "ConvLSTM", "Flask", "SQL", "Docker", "Raspberry Pi", "Git", "JavaScript"]
   },
-  {
-    title: "Software Intern",
-    organization: "Defence Research and Development Organisation (DRDO)",
-    location: "Hyderabad, India",
-    period: "October 2023 – March 2024",
-    highlights: [
-      "Led a team of five to build a YOLOv8-based aerial object detection system, improving precision by 23% on a 20,000-images dataset",
-      "Developed a FastAPI-based REST backend to serve inference APIs, ensuring seamless integration into defense systems",
-      "Designed and documented scalable APIs for predictions, metadata processing, and logging with access control (FastAPI/Java Spring Security), improving reliability/security and reducing debugging time 30%"
-    ],
-    tech: ["Python", "Java", "FastAPI", "YOLOv8", "CVAT", "NumPy", "REST APIs", "Git", "OpenCV"]
-  },
-  {
-    title: "Software Intern",
-    organization: "Defence Research and Development Organisation (DRDO)",
-    location: "Hyderabad, India",
-    period: "July 2023 – August 2023",
-    highlights: [
-      "Implemented C++ algorithms for missile navigation simulations (segment intersections, convex polygon areas), improving targeting precision by 25% in tests",
-      "Led a four-person team to integrate ray-casting and intersection techniques into the navigation pipeline, achieving up to 20% faster execution while maintaining numerical correctness and code quality",
-      "Built a web tool using HTML, CSS, and JavaScript to visualize trajectories and polygon regions, streamlining debugging and analysis of simulation results"
-    ],
-    tech: ["C++", "STL", "Algorithms", "Computational Geometry", "Git", "HTML", "CSS", "JavaScript"]
-  }
+
 ];
 
 const Experience = () => {
