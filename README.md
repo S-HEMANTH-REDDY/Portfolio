@@ -1,8 +1,20 @@
-# Welcome to your Lovable project
+# Portfolio
+
+Personal portfolio website showcasing projects, experience, and skills as an MS Computer Science student at University of Florida.
 
 ## Project info
 
 **URL**: https://lovable.dev/projects/836ad70e-8e76-46dc-b065-fc65a1c6ee4d
+
+**Hosted on**: GitHub Pages
+
+## Recent Updates
+
+- Updated About section image styling:
+  - Changed profile image from circular to rounded square design
+  - Increased image container size for better visibility
+  - Added subtle gradient background for professional appearance
+  - Implemented `object-contain` to ensure full image visibility without cropping
 
 ## How can I edit this code?
 
