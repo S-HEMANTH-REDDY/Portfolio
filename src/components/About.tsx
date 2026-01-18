@@ -6,11 +6,11 @@ const About = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div className="space-y-6 lg:space-y-8 animate-slide-in-left">
-            <div className="w-48 h-48 lg:w-56 lg:h-56 mx-auto md:mx-0 mb-8 rounded-full overflow-hidden shadow-medium">
+            <div className="w-64 h-64 lg:w-80 lg:h-80 mx-auto md:mx-0 mb-8 rounded-2xl overflow-hidden shadow-medium bg-gradient-to-br from-accent/10 to-accent/5">
               <img 
                 src={profileImage} 
                 alt="Hemanth Reddy Sankaramaddi" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tight">
@@ -23,8 +23,7 @@ const About = () => {
             </p>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Currently working as a Research Assistant at UF IFAS, developing ML pipelines and full-stack 
-              monitoring solutions. My journey includes internship experience at DRDO working on computational 
-              geometry and aerial object detection. Always learning, always building.
+              monitoring solutions.
             </p>
           </div>
 
