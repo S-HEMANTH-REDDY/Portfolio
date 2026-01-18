@@ -1,85 +1,107 @@
-# Portfolio
+# Hemanth Reddy Sankaramaddi - Portfolio
 
-Personal portfolio website showcasing projects, experience, and skills as an MS Computer Science student at University of Florida.
+Welcome to my personal portfolio website! This is a modern, responsive portfolio showcasing my projects, experience, and technical skills as an MS Computer Science student at the University of Florida.
 
-## Project info
+🔗 **Live Portfolio**: [https://s-hemanth-reddy.github.io/Portfolio/](https://s-hemanth-reddy.github.io/Portfolio/)
 
-**URL**: https://lovable.dev/projects/836ad70e-8e76-46dc-b065-fc65a1c6ee4d
+## 👨‍💼 About Me
 
-**Hosted on**: GitHub Pages
+MS in Computer Science student at University of Florida with a passion for transforming complex ideas into clean, scalable solutions. Currently working as a Research Assistant at UF IFAS, developing ML pipelines and full-stack monitoring solutions. Experienced with full-stack development, machine learning, and computational geometry.
 
-## Recent Updates
+## 🚀 Tech Stack
 
-- Updated About section image styling:
-  - Changed profile image from circular to rounded square design
-  - Increased image container size for better visibility
-  - Added subtle gradient background for professional appearance
-  - Implemented `object-contain` to ensure full image visibility without cropping
+**Frontend:**
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui Components
 
-## How can I edit this code?
+**Build & Development:**
+- Node.js & Bun
+- ESLint
+- PostCSS
 
-There are several ways of editing your application.
+## 📁 Project Structure
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/836ad70e-8e76-46dc-b065-fc65a1c6ee4d) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+Portfolio/
+├── src/
+│   ├── components/      # React components (Hero, About, Projects, etc.)
+│   ├── pages/          # Page components
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utility functions
+│   ├── assets/         # Images and static files
+│   └── App.tsx         # Main app component
+├── public/             # Public assets
+├── vite.config.ts      # Vite configuration
+├── tailwind.config.ts  # Tailwind CSS config
+└── package.json        # Dependencies
 ```
 
-**Edit a file directly in GitHub**
+## 🛠️ Getting Started
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or bun package manager
 
-**Use GitHub Codespaces**
+### Installation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+# Clone the repository
+git clone https://github.com/S-HEMANTH-REDDY/Portfolio.git
 
-## What technologies are used for this project?
+# Navigate to the project
+cd Portfolio
 
-This project is built with:
+# Install dependencies
+npm install
+# or
+bun install
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Start development server
+npm run dev
+# or
+bun run dev
+```
 
-## How can I deploy this project?
+The application will be available at `http://localhost:5173`
 
-Simply open [Lovable](https://lovable.dev/projects/836ad70e-8e76-46dc-b065-fc65a1c6ee4d) and click on Share -> Publish.
+### Build for Production
 
-## Can I connect a custom domain to my Lovable project?
+```bash
+npm run build
+# or
+bun run build
+```
 
-Yes, you can!
+## 📝 Recent Updates
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- **Profile Image Styling**: Updated About section with rounded square image container and gradient background
+- **Responsive Design**: Optimized for mobile, tablet, and desktop views
+- **Performance**: Fast load times with Vite bundling
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🎨 Features
+
+- ✨ Modern, responsive design
+- 🌓 Light/Dark theme toggle
+- 📱 Mobile-first approach
+- ♿ Accessibility-focused
+- ⚡ Fast performance
+- 🎯 Interactive components
+
+## 📧 Contact
+
+Feel free to reach out!
+
+- **Email**: [your-email@example.com](mailto:your-email@example.com)
+- **LinkedIn**: [LinkedIn Profile](https://linkedin.com)
+- **GitHub**: [@S-HEMANTH-REDDY](https://github.com/S-HEMANTH-REDDY)
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+---
+
+Made with ❤️ by Hemanth Reddy Sankaramaddi
