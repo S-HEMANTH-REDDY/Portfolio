@@ -94,8 +94,8 @@ bun run build
 
 Feel free to reach out!
 
-- **Email**: [your-email@example.com](mailto:your-email@example.com)
-- **LinkedIn**: [LinkedIn Profile](https://linkedin.com)
+- **Email**: [your-email@example.com](mailto:hemanth1729hr@gmail.com)
+- **LinkedIn**: [LinkedIn Profile](https://https://www.linkedin.com/in/hemanth-reddy-uf/)
 - **GitHub**: [@S-HEMANTH-REDDY](https://github.com/S-HEMANTH-REDDY)
 
 ## 📄 License
