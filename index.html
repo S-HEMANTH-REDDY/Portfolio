@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Hemanth Reddy Sankaramaddi — Software Engineer</title>
-  <meta name="description" content="Software engineer building infrastructure for ML in production. MS CS at the University of Florida. Software Engineer at UF / IFAS." />
+  <title>Hemanth Reddy Sankaramaddi — Software Engineer · Distributed Systems & ML Infra</title>
+  <meta name="description" content="Software Engineer specializing in distributed systems and ML infrastructure. MS CS, University of Florida (May 2026). Ex-TCS. 2 peer-reviewed publications. Seeking full-time SWE roles." />
   <meta name="author" content="Hemanth Reddy Sankaramaddi" />
 
   <!-- Open Graph / social cards -->
@@ -509,6 +509,33 @@
 
     /* selection */
     ::selection { background: var(--ink); color: var(--paper); }
+
+    /* ---- Skills ---- */
+    .skill-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      padding: 16px 0;
+      border-bottom: 1px dashed var(--rule);
+      align-items: baseline;
+    }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-cat {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+      padding-top: 2px;
+    }
+    .skill-vals {
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      .skill-row { grid-template-columns: 1fr; gap: 6px; }
+    }
   </style>
 </head>
 
@@ -522,25 +549,26 @@
         <a href="#about">About</a>
         <a href="#work">Work</a>
         <a href="#projects">Projects</a>
-        <a href="#pubs">Writing</a>
+        <a href="#skills">Skills</a>
+        <a href="#pubs">Publications</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
 
     <!-- ===== Hero ===== -->
     <header class="hero">
-      <div class="eyebrow">Software Engineer · ML Systems</div>
+      <div class="eyebrow">Software Engineer · Distributed Systems &amp; ML Infra</div>
 
       <h1 class="name">Hemanth Reddy<br/><em>Sankaramaddi</em></h1>
 
       <p class="lede">
-        I build the infrastructure that takes machine-learning models from a notebook into production.
+        I build distributed backend systems and the ML infrastructure that takes models from research into production at scale.
       </p>
 
       <div class="meta">
         <span><span class="dot"></span>Gainesville, FL</span>
-        <span>MS CS · University of Florida · May 8, 2026</span>
-        <span>Open to full-time roles · EAD</span>
+        <span>MS CS · University of Florida · May 2026</span>
+        <span>Available immediately · OPT / EAD</span>
       </div>
 
       <div class="links">
@@ -558,20 +586,20 @@
       </div>
 
       <p>
-        I'm a software engineer focused on the systems that take ML out of notebooks and into production —
-        <strong>PyTorch and CUDA</strong> on one end, <strong>Kafka, Postgres, and Redis</strong> on the other.
+        I'm a software engineer who works across the full backend stack — <strong>distributed microservices and event-driven pipelines</strong> on one end, <strong>PyTorch model training and production inference</strong> on the other.
       </p>
 
       <p>
-        I'm a Software Engineer at the
+        Most recently a Software Engineer at the
         <a href="https://ifas.ufl.edu" target="_blank" rel="noopener">University of Florida's Institute of Food and Agricultural Sciences (IFAS)</a>,
-        where I build training and inference infrastructure for computer-vision systems in production agricultural environments.
-        The work has produced <strong>two peer-reviewed papers in 2025</strong> and a model-serving stack the lab relies on day-to-day.
+        where I built training and inference infrastructure for computer-vision systems deployed in production agricultural environments.
+        The work produced <strong>two peer-reviewed papers in 2025</strong> and a model-serving stack the lab relies on daily.
+        Prior to UF, I spent a year at <strong>Tata Consultancy Services</strong> shipping production Java + Spring Boot APIs at ~1.2k req/min.
       </p>
 
       <div class="now">
         <span class="label">Now</span>
-        <p>Graduated from UF (May&nbsp;8,&nbsp;2026) and looking for full-time roles &mdash; applied ML, ML platform / infra, or backend roles where models are part of the product.</p>
+        <p>Graduated from UF in May 2026 and actively seeking full-time roles &mdash; distributed systems / backend engineering, ML platform / infra, or SWE roles where performance and scale are the core challenge.</p>
       </div>
     </section>
 
@@ -585,7 +613,7 @@
       <!-- IFAS -->
       <div class="row">
         <div class="when">
-          Jan 2025 &mdash; Now
+          Jan 2025 &mdash; May 2026
           <span class="loc">Gainesville, FL</span>
         </div>
         <div>
@@ -594,32 +622,82 @@
 
           <ul>
             <li>
-              Built the inference pipeline for a multi-camera CNN&ndash;LSTM leaf-wetness detection system in PyTorch &mdash;
-              ingests streams from field cameras, runs batched GPU inference, writes scored outputs to Postgres.
+              Built the CNN&ndash;LSTM leaf-wetness detection pipeline in PyTorch (<em>F1 0.87, AUC 0.91</em>) &mdash;
+              ingests streams from 8 field cameras, batches GPU inference on an RTX 4090, writes scored outputs to Postgres.
               Work contributed to a peer-reviewed publication in <em>Journal of Biosystems Engineering</em>.
             </li>
             <li>
-              Cut training time per epoch ~20% by moving image decode + crop + normalize off the Python path into
-              a small C++ extension and overlapping I/O with compute via a prefetching DataLoader.
+              Replaced Python preprocessing hot path with C++17 utilities (buffered I/O, vectorized transforms, batched
+              serialization); cut per-image preprocessing from <em>48ms to 11ms</em> on 1080p inputs and reduced
+              training time per epoch ~20% by overlapping I/O with compute via a prefetching DataLoader.
             </li>
             <li>
-              Stood up a FastAPI + Postgres + Redis service exposing model predictions, run metadata, and per-experiment
-              metrics over REST with versioned schemas &mdash; so the lab can compare runs apples-to-apples instead
-              of digging through notebooks.
+              Built FastAPI + Postgres + Redis model-serving and experiment-tracking service with versioned schemas;
+              supports <em>12 concurrent training runs</em> and <em>40+ registered model versions</em> &mdash;
+              replaced notebook hunting with apples-to-apples run comparison over REST.
             </li>
             <li>
-              Built a Kafka-backed job queue for parallel multi-camera inference across distributed workers; instrumented
-              Prometheus + Grafana on queue depth, worker liveness, and inference latency. Cut wall-clock on
-              full-day batch runs from hours to ~1 hour.
+              Parallelized multi-camera inference with containerized Kafka workers; reduced 8-camera batch wall-time
+              from <em>42 min to 27 min (~36%)</em> by scaling workers 2&rarr;8 and overlapping I/O with GPU compute.
+              Instrumented Prometheus + Grafana on queue depth, worker liveness, and inference latency.
             </li>
             <li>
-              Designed the React dashboard ~15 lab members use day-to-day to monitor runs, training curves, and predictions.
+              Shipped React + WebSocket analytics dashboard used daily by ~15 lab members to review real-time CV
+              inferences, per-plant health scores, disease classifications, and canopy-temperature heatmaps &mdash;
+              replaced 30&ndash;60 min of manual log inspection with sub-second visual review.
+            </li>
+            <li>
+              Built GitHub Actions CI with test &rarr; container-build &rarr; image-push stages and main-branch release
+              gates; eliminated ~3 broken deploys/month on shared research machines.
             </li>
           </ul>
 
           <div class="stack">
             <span class="stack-label">Stack</span>
-            Python &middot; PyTorch &middot; C++ &middot; FastAPI &middot; Kafka &middot; Postgres &middot; Redis &middot; Prometheus &middot; React
+            Python &middot; PyTorch &middot; C++17 &middot; FastAPI &middot; Kafka &middot; Postgres &middot; Redis &middot; Prometheus &middot; Grafana &middot; React &middot; Docker &middot; GitHub Actions
+          </div>
+        </div>
+      </div>
+
+      <!-- TCS -->
+      <div class="row">
+        <div class="when">
+          Jun 2023 &mdash; Jul 2024
+          <span class="loc">India</span>
+        </div>
+        <div>
+          <div class="role">Software Engineer</div>
+          <div class="place">Tata Consultancy Services</div>
+
+          <ul>
+            <li>
+              Built and maintained Java + Spring Boot REST APIs for customer-eligibility and KYC verification flows
+              for a banking client, serving <em>~1.2k req/min</em> in production.
+            </li>
+            <li>
+              Tuned PostgreSQL on highest-traffic endpoints &mdash; added composite index on
+              <code style="font-family:var(--mono);font-size:13px;">(customer_id, status, created_at)</code>
+              and rewrote 7 N+1 query patterns; cut p95 latency on the account-listing endpoint from
+              <em>1.1s to 180ms</em>.
+            </li>
+            <li>
+              Resolved 14 production incidents on Linux using log analysis and
+              <code style="font-family:var(--mono);font-size:13px;">pg_stat_statements</code>; authored runbooks
+              that cut mean time-to-mitigate for recurring connection-pool exhaustion from <em>~45 min to ~12 min</em>.
+            </li>
+            <li>
+              Automated log parsing, health checks, and weekly ops reports in Python; removed
+              <em>~6 hours/week</em> of manual on-call toil for the team.
+            </li>
+            <li>
+              Integrated AWS S3, Lambda, and API Gateway for async report generation and artifact storage
+              with role-based IAM access controls.
+            </li>
+          </ul>
+
+          <div class="stack">
+            <span class="stack-label">Stack</span>
+            Java 11 &middot; Spring Boot &middot; PostgreSQL &middot; AWS (S3, Lambda, API Gateway, IAM) &middot; Python &middot; Linux
           </div>
         </div>
       </div>
@@ -635,12 +713,12 @@
 
       <div class="proj-row">
         <div>
-          <div class="title">QuickChat &mdash; Instant Messaging Platform</div>
+          <div class="title">QuickChat &mdash; Real-Time Messaging Service</div>
           <p>
-            Consumer-facing real-time chat product with Go services and a React UI. Multiple server instances
-            stay in sync via Redis Pub/Sub for message fanout; Redis caching serves fast history reads, keeping
-            delivery responsive under concurrent load and reducing database pressure. Focused on reliable delivery
-            and sub-200&thinsp;ms interaction across web and mobile-like surfaces.
+            High-throughput chat backend in Go with WebSocket gateways and Redis Pub/Sub fan-out. Sustained
+            <em>5,000 concurrent connections</em> and <em>8,500 msg/sec at p99 42ms</em> in k6 load tests on a
+            4-vCPU box. Redis-backed recent-message cache cut PostgreSQL read QPS ~70% on history fetches.
+            Multiple server instances stay in sync via Redis Pub/Sub for seamless horizontal scaling.
           </p>
           <div class="stack">Go &middot; WebSocket &middot; Redis Pub/Sub &middot; React &middot; Postgres</div>
         </div>
@@ -651,10 +729,11 @@
         <div>
           <div class="title">Distributed Reddit-Style Feed Engine</div>
           <p>
-            Distributed feed-generation service using Kafka event streams and fan-out pipelines to process post
-            and interaction events across thousands of users. A Redis-sorted-set ranking layer with async workers
-            cut feed read latency ~40% under simulated production load. Fault-tolerant consumers with idempotent
-            event handling and retry / DLQ paths ensure consistent feed updates across distributed workers.
+            Event-driven feed-generation service with Kafka-backed ingest, ranking, and fan-out microservices.
+            Sustained <em>3,200 events/sec on a 3-broker local cluster</em> before consumer lag grew unboundedly.
+            Redis sorted-set ranking layer with async workers cut feed read latency ~40% under simulated load.
+            Idempotent consumers with at-least-once retries and DLQ paths prevent duplicate feed updates across
+            distributed workers. Exposed consumer-lag, retry-count, and error-rate metrics for observability.
           </p>
           <div class="stack">Go &middot; Kafka &middot; Redis &middot; Postgres &middot; REST &middot; Docker</div>
         </div>
@@ -689,10 +768,43 @@
       </div>
     </section>
 
+    <!-- ===== Skills ===== -->
+    <section id="skills">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">Skills</h2>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill-cat">Languages</span>
+        <span class="skill-vals">Python 3.11, Go, Java 11 &mdash; primary &nbsp;&middot;&nbsp; C++17, TypeScript, SQL &mdash; working</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Backend &amp; Data</span>
+        <span class="skill-vals">FastAPI, Spring Boot, REST, WebSockets, gRPC &nbsp;&middot;&nbsp; PostgreSQL (indexing, query tuning, pg_stat_statements), Redis, MongoDB</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Distributed &amp; Infra</span>
+        <span class="skill-vals">Kafka, event-driven microservices, idempotent consumers &nbsp;&middot;&nbsp; Docker, Kubernetes (k3s), GitHub Actions, Jenkins &nbsp;&middot;&nbsp; AWS (S3, Lambda, API Gateway, IAM), Linux</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">ML / AI</span>
+        <span class="skill-vals">PyTorch, CNN-LSTM pipelines, YOLOv8, computer vision, reproducible experiment tracking</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Observability</span>
+        <span class="skill-vals">Prometheus, Grafana, structured logging, pg_stat_statements, on-call incident response</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Concepts</span>
+        <span class="skill-vals">Distributed systems, system design, API design, OOP, DSA, code review, observability</span>
+      </div>
+    </section>
+
     <!-- ===== Publications ===== -->
     <section id="pubs" class="pubs">
       <div class="sec-head">
-        <span class="sec-num">04</span>
+        <span class="sec-num">05</span>
         <h2 class="sec-title">Publications</h2>
       </div>
 
@@ -715,8 +827,8 @@
     <!-- ===== Footer / Contact ===== -->
     <footer id="contact">
       <div class="left">
-        &copy; 2026 Hemanth Reddy Sankaramaddi &middot; Looking for full-time roles starting Summer&nbsp;2026 &mdash;
-        applied ML, ML platform, ML infra, or backend where models are part of the product.
+        &copy; 2026 Hemanth Reddy Sankaramaddi &middot; MS CS, University of Florida (May 2026) &mdash;
+        available immediately for full-time SWE roles: distributed systems, backend, ML platform / infra.
       </div>
       <div class="right">
         <a href="mailto:hemanth1729hr@gmail.com">hemanth1729hr@gmail.com</a>
