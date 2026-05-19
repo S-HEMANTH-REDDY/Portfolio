@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Hemanth Reddy Sankaramaddi — Software Engineer</title>
-  <meta name="description" content="Software engineer building infrastructure for ML in production. MS CS at the University of Florida. Currently at UF / IFAS, with prior backend experience at TCS." />
+  <meta name="description" content="Software engineer building infrastructure for ML in production. MS CS at the University of Florida. Software Engineer at UF / IFAS." />
   <meta name="author" content="Hemanth Reddy Sankaramaddi" />
 
   <!-- Open Graph / social cards -->
@@ -544,8 +544,6 @@
       </div>
 
       <div class="links">
-        <!-- TODO: replace href with link to your hosted PDF, e.g. /resume.pdf -->
-        <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
         <a href="https://github.com/S-HEMANTH-REDDY" target="_blank" rel="noopener">GitHub</a>
         <a href="https://linkedin.com/in/hemanth-reddy-uf" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:hemanth1729hr@gmail.com">Email</a>
@@ -565,17 +563,10 @@
       </p>
 
       <p>
-        Right now I'm a Software Engineer at the
+        I'm a Software Engineer at the
         <a href="https://ifas.ufl.edu" target="_blank" rel="noopener">University of Florida's Institute of Food and Agricultural Sciences (IFAS)</a>,
-        where I build the training and inference infrastructure for a multi-camera CNN&ndash;LSTM leaf-wetness
-        detection system. The work has produced <strong>two peer-reviewed papers in 2025</strong> and a model-serving
-        stack the lab uses day-to-day.
-      </p>
-
-      <p>
-        Before grad school I spent a year at <strong>TCS</strong> on a payments-systems backend team &mdash;
-        REST and gRPC services, Kafka pipelines, and the kind of Postgres tuning you only learn how to do after
-        the dashboard endpoint pages you at 2&nbsp;AM.
+        where I build training and inference infrastructure for computer-vision systems in production agricultural environments.
+        The work has produced <strong>two peer-reviewed papers in 2025</strong> and a model-serving stack the lab relies on day-to-day.
       </p>
 
       <div class="now">
@@ -633,42 +624,6 @@
         </div>
       </div>
 
-      <!-- TCS -->
-      <div class="row">
-        <div class="when">
-          Jun 2023 &mdash; Jul 2024
-          <span class="loc">Hyderabad, India</span>
-        </div>
-        <div>
-          <div class="role">Software Engineer</div>
-          <div class="place">Tata Consultancy Services</div>
-
-          <ul>
-            <li>
-              Built REST and gRPC backend services in Java and C# (.NET) for a payments client &mdash; order validation,
-              idempotency keys, downstream ledger calls under a tight per-request latency budget.
-            </li>
-            <li>
-              Moved slow work off the request thread with Kafka-based async processing (notifications, ledger replays,
-              retry queues), reducing tail-latency complaints from the consumer-facing path.
-            </li>
-            <li>
-              Tuned Postgres on hot endpoints &mdash; added missing composite indexes, rewrote two N+1 patterns,
-              moved expensive aggregates to a materialized view &mdash; and visibly cut p95 latency on the dashboard's
-              hottest endpoint.
-            </li>
-            <li>
-              Added structured logging and on-call dashboards. On rotation for two production incidents and
-              co-authored the post-mortems.
-            </li>
-          </ul>
-
-          <div class="stack">
-            <span class="stack-label">Stack</span>
-            Java &middot; C# (.NET) &middot; Python &middot; Kafka &middot; Postgres &middot; MySQL &middot; Redis &middot; REST &middot; gRPC
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- ===== Projects ===== -->
@@ -678,15 +633,14 @@
         <h2 class="sec-title">Projects</h2>
       </div>
 
-      <!-- TODO: replace each .link href below with the correct repo URL once those repos are public. -->
-
       <div class="proj-row">
         <div>
-          <div class="title">QuickChat</div>
+          <div class="title">QuickChat &mdash; Instant Messaging Platform</div>
           <p>
-            Horizontally-scaled chat backend in Go. Multiple server instances stay in sync via Redis Pub/Sub;
-            clients connect over WebSocket and get sub-200&thinsp;ms delivery in local benchmarks. Built to learn
-            how WebSocket systems handle the &ldquo;which instance owns this user&rdquo; problem.
+            Consumer-facing real-time chat product with Go services and a React UI. Multiple server instances
+            stay in sync via Redis Pub/Sub for message fanout; Redis caching serves fast history reads, keeping
+            delivery responsive under concurrent load and reducing database pressure. Focused on reliable delivery
+            and sub-200&thinsp;ms interaction across web and mobile-like surfaces.
           </p>
           <div class="stack">Go &middot; WebSocket &middot; Redis Pub/Sub &middot; React &middot; Postgres</div>
         </div>
@@ -695,26 +649,41 @@
 
       <div class="proj-row">
         <div>
-          <div class="title">feed-engine</div>
+          <div class="title">Distributed Reddit-Style Feed Engine</div>
           <p>
-            Distributed Reddit-style feed-generation backend. Producers emit post and interaction events to Kafka;
-            consumer workers fan out to per-user feeds in Postgres and update a Redis sorted-set ranking layer for
-            read-time. Idempotent consumers, retry / DLQ paths, load-tested with a synthetic interaction generator.
+            Distributed feed-generation service using Kafka event streams and fan-out pipelines to process post
+            and interaction events across thousands of users. A Redis-sorted-set ranking layer with async workers
+            cut feed read latency ~40% under simulated production load. Fault-tolerant consumers with idempotent
+            event handling and retry / DLQ paths ensure consistent feed updates across distributed workers.
           </p>
-          <div class="stack">Go &middot; Kafka &middot; Redis &middot; Postgres &middot; Docker</div>
+          <div class="stack">Go &middot; Kafka &middot; Redis &middot; Postgres &middot; REST &middot; Docker</div>
         </div>
         <a class="link" href="https://github.com/S-HEMANTH-REDDY" target="_blank" rel="noopener">GitHub</a>
       </div>
 
       <div class="proj-row">
         <div>
-          <div class="title">leaf-wetness</div>
+          <div class="title">Banking Transaction Processing System</div>
           <p>
-            Training and inference codebase behind our 2025 paper in <em>Journal of Biosystems Engineering</em>.
-            Multi-camera time-series detection of leaf wetness on strawberry crops &mdash; model card,
-            evaluation report, reproducible training scripts.
+            C++ transaction processing engine handling account creation, deposits, withdrawals, transfers, and
+            history with persistent storage. Concurrency control on balance updates maintains correctness across
+            simultaneous requests. Includes input validation, structured logging, and failure-handling to prevent
+            inconsistent account state under concurrent load.
           </p>
-          <div class="stack">PyTorch &middot; C++ extensions &middot; FastAPI &middot; Postgres</div>
+          <div class="stack">C++ &middot; Multithreading &middot; File I/O &middot; Networking</div>
+        </div>
+        <a class="link" href="https://github.com/S-HEMANTH-REDDY" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <div class="proj-row">
+        <div>
+          <div class="title">Client&ndash;Server File Transfer System</div>
+          <p>
+            Multithreaded client&ndash;server file transfer application in C++ using TCP sockets for concurrent
+            uploads and downloads. Implements efficient file handling, thread synchronization, and error management
+            for reliable data transmission across concurrent clients.
+          </p>
+          <div class="stack">C++ &middot; TCP Sockets &middot; Multithreading &middot; File I/O &middot; Networking</div>
         </div>
         <a class="link" href="https://github.com/S-HEMANTH-REDDY" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -732,15 +701,13 @@
           Sankaramaddi, H. R., et&nbsp;al.
           &ldquo;Time-Series Detection of Leaf Wetness Using a CNN&ndash;LSTM-Based Vision System in Strawberry Farming.&rdquo;
           <em>Journal of Biosystems Engineering</em>, 2025.
-          <!-- TODO: replace # with DOI / journal URL -->
-          <a href="#" target="_blank" rel="noopener">DOI&nbsp;&rarr;</a>
+          <a href="#" target="_blank" rel="noopener">Paper&nbsp;&rarr;</a>
         </li>
         <li>
           Sankaramaddi, H. R., et&nbsp;al.
           &ldquo;2D-to-3D Image Reconstruction in Agriculture: A Review of Methods, Challenges, and AI-Driven Opportunities.&rdquo;
           <em>Sensors (MDPI)</em>, 2025.
-          <!-- TODO: replace # with DOI / journal URL -->
-          <a href="#" target="_blank" rel="noopener">DOI&nbsp;&rarr;</a>
+          <a href="#" target="_blank" rel="noopener">Paper&nbsp;&rarr;</a>
         </li>
       </ol>
     </section>
