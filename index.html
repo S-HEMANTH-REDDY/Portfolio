@@ -669,6 +669,42 @@
 
       <div class="proj-row">
         <div>
+          <div class="title">Mini LLM Inference Runtime with KV Cache</div>
+          <p>
+            Built a mini LLM inference runtime around HuggingFace causal models, implementing
+            request scheduling, token-by-token generation with <em>KV-cache reuse</em>, and
+            continuous batching so new prompts join the active batch between decode steps.
+            FastAPI server exposes blocking and async endpoints with a live metrics route.
+            Benchmarked prefill/decode latency, p50/p95, tokens/sec, and GPU memory across
+            prompt lengths and batch sizes to analyze LLM inference bottlenecks.
+            Studied vLLM paged-attention, SGLang RadixAttention, and FlashAttention internals
+            to understand how KV-cache layout and batching policy affect throughput.
+          </p>
+          <div class="stack">Python &middot; PyTorch &middot; HuggingFace Transformers &middot; FastAPI &middot; asyncio &middot; CUDA profiling</div>
+        </div>
+        <a class="link" href="https://github.com/S-HEMANTH-REDDY/llm-inference-runtime" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <div class="proj-row">
+        <div>
+          <div class="title">Custom GPU Kernels for Deep Learning Primitives</div>
+          <p>
+            Implemented custom GPU kernels for tiled matrix multiplication, row-wise softmax,
+            and parallel reduction in both <em>Triton</em> and <em>CUDA C++</em>, validating
+            numerical correctness against PyTorch baselines. Benchmarked custom kernels against
+            torch.matmul, torch.softmax, and naive CPU implementations across tensor sizes,
+            measuring latency, TFLOPS, and effective memory bandwidth. Tuned tile sizes, block
+            dimensions, shared-memory reuse, and dtype choices to study occupancy and memory
+            bandwidth tradeoffs. Profiled with Nsight Systems / Compute to identify bottlenecks
+            and document performance gaps vs cuBLAS / vendor-optimized operators.
+          </p>
+          <div class="stack">Triton &middot; CUDA C++ &middot; PyTorch &middot; Nsight Systems &middot; Python benchmarking</div>
+        </div>
+        <a class="link" href="https://github.com/S-HEMANTH-REDDY/gpu-kernels-dl" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <div class="proj-row">
+        <div>
           <div class="title">QuickChat &mdash; Real-Time Messaging Service</div>
           <p>
             High-throughput chat backend in Go with WebSocket gateways and Redis Pub/Sub fan-out. Sustained
@@ -745,7 +781,7 @@
       </div>
       <div class="skill-row">
         <span class="skill-cat">ML / AI</span>
-        <span class="skill-vals">PyTorch, CNN-LSTM pipelines, YOLOv8, computer vision, reproducible experiment tracking</span>
+        <span class="skill-vals">PyTorch, LLM inference (KV cache, continuous batching), custom GPU kernels (Triton, CUDA C++), CNN-LSTM pipelines, YOLOv8, computer vision, experiment tracking</span>
       </div>
       <div class="skill-row">
         <span class="skill-cat">Observability</span>
