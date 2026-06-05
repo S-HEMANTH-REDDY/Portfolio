@@ -669,6 +669,43 @@
 
       <div class="proj-row">
         <div>
+          <div class="title">Tool-Using ReAct Agent with Self-Reflection</div>
+          <p>
+            Built a tool-using agent on a hand-rolled ReAct loop (reason &rarr; act &rarr; observe,
+            capped at N steps) over 4 tools &mdash; document retrieval, lookup, calculator, and
+            final-answer &mdash; with an LLM planner selecting tools via structured function calls.
+            Enforced reliability with Pydantic-validated JSON tool schemas that reject and retry on
+            malformed or hallucinated tool calls, plus timeout and max-step fallbacks; added a
+            self-critique pass before the agent commits to a final answer.
+            Built a 30-task multi-step evaluation set measuring task-success rate and average
+            steps-to-completion; used it to tune the planner prompt and tool descriptions,
+            tracking failure modes (wrong tool, premature finalization, loops).
+          </p>
+          <div class="stack">Python &middot; OpenAI function calling &middot; Pydantic &middot; RAG &middot; asyncio</div>
+        </div>
+        <a class="link" href="https://github.com/S-HEMANTH-REDDY/react-agent" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <div class="proj-row">
+        <div>
+          <div class="title">Multi-Agent Orchestrator with Hierarchical Delegation</div>
+          <p>
+            Built a planner-orchestrator that decomposes tasks and delegates to specialist sub-agents
+            (retriever, executor, verifier) over a shared typed state object, with hierarchical
+            delegation and result aggregation &mdash; built on LangGraph.
+            Instrumented per-agent tracing &mdash; inputs, outputs, tool calls, and token and latency
+            accounting per step &mdash; for granular debugging of multi-step runs.
+            Evaluated against a single-agent baseline on decomposition-heavy tasks, measuring
+            task-success rate, total tokens, and end-to-end latency; documented where multi-agent
+            delegation helped vs. added overhead.
+          </p>
+          <div class="stack">Python &middot; LangGraph &middot; OpenAI &middot; Pydantic &middot; asyncio</div>
+        </div>
+        <a class="link" href="https://github.com/S-HEMANTH-REDDY/multi-agent-orchestrator" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <div class="proj-row">
+        <div>
           <div class="title">Mini LLM Inference Runtime with KV Cache</div>
           <p>
             Built a mini LLM inference runtime around HuggingFace causal models, implementing
@@ -781,7 +818,7 @@
       </div>
       <div class="skill-row">
         <span class="skill-cat">ML / AI</span>
-        <span class="skill-vals">PyTorch, LLM inference (KV cache, continuous batching), custom GPU kernels (Triton, CUDA C++), CNN-LSTM pipelines, YOLOv8, computer vision, experiment tracking</span>
+        <span class="skill-vals">PyTorch, LLM inference (KV cache, continuous batching), custom GPU kernels (Triton, CUDA C++), CNN-LSTM pipelines, YOLOv8, computer vision, experiment tracking &nbsp;&middot;&nbsp; Agentic AI: ReAct loops, multi-agent orchestration, LangGraph, OpenAI function calling, Pydantic tool schemas, RAG</span>
       </div>
       <div class="skill-row">
         <span class="skill-cat">Observability</span>
